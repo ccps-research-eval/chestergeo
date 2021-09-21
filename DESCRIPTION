@@ -1,16 +1,22 @@
 Package: ccpsgeo
-Title: What the Package Does (One Line, Title Case)
+Title: Tools for Working with CCPS Geographical Data
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Eric",
+           family = "Ekholm",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+           email = "eric.ekholm@gmail.com")
+Description: ccpsgeo provides tools for working with geographical data pertinent to Chesterfield County Public Schools. It includes tools for geocoding student addresses as well as an API to retrieve geographical data from Chesterfield County government's GeoServices tools.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/ccps-research-eval/ccpsgeo
+BugReports: https://github.com/ccps-research-eval/ccpsgeo/issues
+Imports:
+  ccpsr,
+  purrr,
+  dplyr,
+  sf,
+  tibble
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
