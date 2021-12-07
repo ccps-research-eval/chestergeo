@@ -2,4 +2,5 @@
 
 export("%>%")
 export(get_geo_data)
+export(get_school_boundaries)
 importFrom(magrittr,"%>%")
