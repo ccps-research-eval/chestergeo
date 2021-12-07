@@ -13,10 +13,14 @@ LazyData: true
 URL: https://github.com/ccps-research-eval/ccpsgeo
 BugReports: https://github.com/ccps-research-eval/ccpsgeo/issues
 Imports:
-  ccpsr,
   purrr,
   dplyr,
   sf,
-  tibble
+  stringr,
+  tibble,
+  magrittr,
+  httr2
+Suggests:
+  rvest
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
