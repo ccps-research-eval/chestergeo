@@ -40,7 +40,7 @@ make_layers_crosswalk <- function(service) {
 
   res <- extract_resources(url = url, services = FALSE)
 
-  tibble(
+  tibble::tibble(
     service = service,
     layer_num = 0:(length(res) - 1),
     layer = res

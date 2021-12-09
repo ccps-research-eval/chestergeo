@@ -1,28 +1,28 @@
-Package: ccpsgeo
-Title: Tools for Working with CCPS Geographical Data
-Version: 0.0.0.9000
+Package: chestergeo
+Title: Tools for Accessing Chesterfield County VA Geographical Data
+Version: 0.0.1.0
 Authors@R: 
     person(given = "Eric",
            family = "Ekholm",
            role = c("aut", "cre"),
            email = "eric.ekholm@gmail.com")
-Description: ccpsgeo provides tools for working with geographical data pertinent to Chesterfield County Public Schools. It includes tools for geocoding student addresses as well as an API to retrieve geographical data from Chesterfield County government's GeoServices tools.
+Description: chestergeo provides tools for accessing publicly-available geographical data regarding Chesterfield County and Chesterfield County Public Schools.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/ccps-research-eval/ccpsgeo
-BugReports: https://github.com/ccps-research-eval/ccpsgeo/issues
+URL: https://github.com/ccps-research-eval/chestergeo
+BugReports: https://github.com/ccps-research-eval/chestergeo/issues
 Imports:
   purrr,
-  ggplot2,
-  dplyr,
+  rlang,
   glue,
   sf,
+  magrittr
+Suggests:
+  rvest,
+  dplyr,
   stringr,
   tibble,
-  magrittr,
   httr2
-Suggests:
-  rvest
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1

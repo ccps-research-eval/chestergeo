@@ -1,15 +1,15 @@
 ---
-title: "ccpsgeo"
+title: "chestergeo"
 output: github_document
 ---
 
-`{ccpsgeo}` contains tools for working with geographical data relevant to Chesterfield County Public Schools.
+`{chestergeo}` contains tools for accessing geographical data for Chesterfield County, VA, including data relating to Chesterfield County Public Schools (CCPS).
 
 # Installation
 
-You can install `{ccpsgeo}` from Github via the following:
+You can install `{chestergeo}` from Github via the following:
 
 ```{r install-block, eval = FALSE}
-devtools::install_github("ccps-research-eval/ccpsgeo")
+devtools::install_github("ccps-research-eval/chestergeo")
 ```
 
