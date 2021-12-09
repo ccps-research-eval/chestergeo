@@ -21,6 +21,10 @@ get_geo_data <- function(layer) {
 
   url <- glue::glue("https://services3.arcgis.com/TsynfzBSE6sXfoLq/ArcGIS/rest/services/{service}/FeatureServer/{num}/query?outFields=*&where=1%3D1&f=json")
 
-  sf::st_read(url)
+  ret <- sf::st_read(url)
+
+  class(ret) <- append(class(ret), "chester_geo")
+
+  return(ret)
 
 }
