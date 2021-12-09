@@ -3,7 +3,7 @@ title: "chestergeo"
 output: github_document
 ---
 
-`{chestergeo}` contains tools for accessing geographical data for Chesterfield County, VA, including data relating to Chesterfield County Public Schools (CCPS).
+`{chestergeo}` provides an interface for accessing data from [Chesterfield County's OpenGeoSpace](https://opengeospace.chesterfield.gov/). This includes publicly-available data describing county infrastructure, school and voting boundaries, utility locations, and locations of police/fire/EMS responses, among others.
 
 # Installation
 
@@ -11,5 +11,60 @@ You can install `{chestergeo}` from Github via the following:
 
 ```{r install-block, eval = FALSE}
 devtools::install_github("ccps-research-eval/chestergeo")
+```
+
+# Basic Usage
+
+The core function provided by the package is `get_geo_data()`. This function takes a "layer" argument, which defines the OpenGeoSpace layer to retrieve data from. You can see all layers available in the `available_layers` object (as well as within the `layers_crosswalk` data).
+
+For example, we might be interested in retrieving the middle school boundary data:
+
+```{r}
+library(chestergeo)
+
+ms_bounds <- get_geo_data("MiddleSchoolBoundary")
+```
+
+This returns a `sf` object:
+
+```{r, warning = FALSE, message = FALSE}
+library(dplyr)
+
+glimpse(ms_bounds)
+```
+
+We can then plot this object just as we would any other `sf` object.
+
+```{r}
+library(ggplot2)
+
+ggplot(ms_bounds) +
+  geom_sf(aes(fill = SchoolName)) +
+  labs(title = "CCPS Middle School Boundaries") +
+  theme_void()
+```
+
+Likewise, if we wanted to see bus routes in the county:
+
+```{r}
+bus_routes <- get_geo_data("GRTC_Bus_Routes")
+
+ggplot(bus_routes) +
+  geom_sf(aes(color = objectid)) +
+  theme_void()
+```
+
+
+## Wrapping Functions
+
+I am currently implementing some functions that wrap the `get_geo_data()` function so that users do not necessarily need to know the names of the layers they're accessing (which names aren't always super straightforward). Currently, the only wrapper function is `get_school_boundaries()`, which allows users to request school boundary lines.
+
+The following code is equivalent:
+
+```{r school-bounds, eval = FALSE}
+ms_bounds <- get_geo_data("MiddleSchoolBoundary")
+
+#same as
+ms_bounds2 <- get_school_boundaries(level = "middle")
 ```
 
