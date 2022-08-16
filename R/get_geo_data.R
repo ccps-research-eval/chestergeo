@@ -5,7 +5,7 @@
 #'
 #' @param layer character. The name of the layer to retrieve data from. See \code{\link{layers_crosswalk}} for possible layers
 #'
-#' @return
+#' @returns An `sf` object with information about the given layer, including a geometry column
 #' @export
 #'
 #' @examples \dontrun{
@@ -15,11 +15,13 @@ get_geo_data <- function(layer) {
 
   check_valid_layer(layer)
 
-  num <- layers_crosswalk$layer_num[layers_crosswalk$layer == layer]
+  cw <- chestergeo::layers_crosswalk
 
-  service <- layers_crosswalk$service[layers_crosswalk$layer == layer]
+  num <- cw$layer_num[cw$layer == layer]
 
-  url <- glue::glue("https://services3.arcgis.com/TsynfzBSE6sXfoLq/ArcGIS/rest/services/{service}/FeatureServer/{num}/query?outFields=*&where=1%3D1&f=json")
+  service <- cw$service[cw$layer == layer]
+
+  url <- paste0("https://services3.arcgis.com/TsynfzBSE6sXfoLq/ArcGIS/rest/services/", service, "/FeatureServer/", num, "/query?outFields=*&where=1%3D1&f=geojson")
 
   sf::st_read(url)
 

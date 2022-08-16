@@ -5,7 +5,7 @@
 #'
 #' @param level Either 'elem', 'middle', or 'high'
 #'
-#' @return
+#' @returns an `sf` object with the school boundaries for the chosen school level
 #' @export
 #'
 #' @examples \dontrun{

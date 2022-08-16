@@ -1,15 +1,10 @@
 
 extract_resources <- function(url = "https://services3.arcgis.com/TsynfzBSE6sXfoLq/ArcGIS/rest/services",
                               services = TRUE) {
+
   res <- rvest::read_html(url) %>%
     rvest::html_elements("li") %>%
     rvest::html_elements("a")
-
-  #ret <- purrr::map_chr(res, ~stringr::str_replace_all(as.character(.x), "^.*>(\\D+)<.*", "\\1"))
-
-  # ret <- if (services == TRUE) {
-  #   stringr::str_subset(ret, "href", negate = TRUE)
-  # } else
 
   ret <- purrr::map_chr(res, ~extract_link_name(.x))
 

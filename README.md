@@ -1,5 +1,5 @@
-chestergeo
-================
+
+# chestergeo
 
 `{chestergeo}` provides an interface for accessing data from
 [Chesterfield County’s
@@ -33,16 +33,16 @@ library(chestergeo)
 ms_bounds <- get_geo_data("MiddleSchoolBoundary")
 ```
 
-    ## Reading layer `ESRIJSON' from data source 
-    ##   `https://services3.arcgis.com/TsynfzBSE6sXfoLq/ArcGIS/rest/services/Administrative/FeatureServer/10/query?outFields=*&where=1%3D1&f=json' 
-    ##   using driver `ESRIJSON'
+    ## Reading layer `OGRGeoJSON' from data source 
+    ##   `https://services3.arcgis.com/TsynfzBSE6sXfoLq/ArcGIS/rest/services/Administrative/FeatureServer/10/query?outFields=*&where=1%3D1&f=geojson' 
+    ##   using driver `GeoJSON'
     ## Simple feature collection with 12 features and 6 fields
     ## Geometry type: MULTIPOLYGON
     ## Dimension:     XY
-    ## Bounding box:  xmin: -8669398 ymin: 4469362 xmax: -8599011 ymax: 4517806
-    ## Projected CRS: WGS 84 / Pseudo-Mercator
+    ## Bounding box:  xmin: -77.87853 ymin: 37.21675 xmax: -77.24623 ymax: 37.56251
+    ## Geodetic CRS:  WGS 84
 
-This returns a `sf` object:
+This returns an `sf` object:
 
 ``` r
 library(dplyr)
@@ -54,11 +54,11 @@ glimpse(ms_bounds)
     ## Columns: 7
     ## $ OBJECTID      <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
     ## $ SchoolName    <chr> "TOMAHAWK CREEK", "SWIFT CREEK", "BAILEY BRIDGE", "SALEM~
-    ## $ GlobalID      <chr> "4d8990b4-8fa1-4aa6-927c-d0095192c0ca", "c7cb87c5-736d-4~
+    ## $ GlobalID      <chr> "95041317-e635-413a-a32e-87856b245ce0", "2dff7f36-159a-4~
     ## $ SchoolNum     <int> 88, 27, 63, 72, 87, 11, 42, 76, 32, 69, 67, 25
     ## $ Shape__Area   <dbl> 292504601, 56354869, 292016506, 96218314, 186982820, 427~
     ## $ Shape__Length <dbl> 115768.99, 57269.36, 121169.37, 71727.80, 112616.58, 128~
-    ## $ geometry      <MULTIPOLYGON [m]> MULTIPOLYGON (((-8643267 45..., MULTIPOLYGON (((-8640863~
+    ## $ geometry      <MULTIPOLYGON [°]> MULTIPOLYGON (((-77.64379 3..., MULTIPOLYGON (((-77.6221~
 
 We can then plot this object just as we would any other `sf` object.
 
@@ -73,25 +73,28 @@ ggplot(ms_bounds) +
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
-Likewise, if we wanted to see bus routes in the county:
+Likewise, if we wanted to see the major roads in the county:
 
 ``` r
-bus_routes <- get_geo_data("GRTC_Bus_Routes")
+roads <- get_geo_data("Major Roads")
 ```
 
-    ## Reading layer `ESRIJSON' from data source 
-    ##   `https://services3.arcgis.com/TsynfzBSE6sXfoLq/ArcGIS/rest/services/GRTC_Bus_Routes/FeatureServer/0/query?outFields=*&where=1%3D1&f=json' 
-    ##   using driver `ESRIJSON'
-    ## Simple feature collection with 45 features and 7 fields
+    ## Reading layer `OGRGeoJSON' from data source 
+    ##   `https://services3.arcgis.com/TsynfzBSE6sXfoLq/ArcGIS/rest/services/Transportation/FeatureServer/6/query?outFields=*&where=1%3D1&f=geojson' 
+    ##   using driver `GeoJSON'
+    ## Simple feature collection with 208 features and 16 fields
     ## Geometry type: MULTILINESTRING
     ## Dimension:     XY
-    ## Bounding box:  xmin: -8645904 ymin: 4470615 xmax: -8605291 ymax: 4557932
-    ## Projected CRS: WGS 84 / Pseudo-Mercator
+    ## Bounding box:  xmin: -77.86565 ymin: 37.22161 xmax: -77.27139 ymax: 37.57515
+    ## Geodetic CRS:  WGS 84
 
 ``` r
-ggplot(bus_routes) +
-  geom_sf(aes(color = objectid)) +
-  theme_void()
+ggplot(roads) +
+  geom_sf(aes(color = OBJECTID)) +
+  theme_void() +
+  theme(
+    legend.position = "none"
+  )
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->

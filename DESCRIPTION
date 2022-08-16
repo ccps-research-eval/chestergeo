@@ -10,19 +10,21 @@ Description: chestergeo provides tools for accessing publicly-available geograph
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/ccps-research-eval/chestergeo
+URL: https://github.com/ccps-research-eval/chestergeo,
+    https://ccps-research-eval.github.io/chestergeo/
 BugReports: https://github.com/ccps-research-eval/chestergeo/issues
 Imports:
-  purrr,
   rlang,
-  glue,
   sf,
   magrittr
 Suggests:
-  rvest,
-  dplyr,
-  stringr,
-  tibble,
-  httr2
+    rvest,
+    purrr,
+    dplyr,
+    stringr,
+    tibble,
+    httr2,
+    testthat (>= 3.0.0)
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
+Config/testthat/edition: 3

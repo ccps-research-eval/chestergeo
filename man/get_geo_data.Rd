@@ -10,7 +10,7 @@ get_geo_data(layer)
 \item{layer}{character. The name of the layer to retrieve data from. See \code{\link{layers_crosswalk}} for possible layers}
 }
 \value{
-
+An \code{sf} object with information about the given layer, including a geometry column
 }
 \description{
 This function retrieves data for the requested layer from the Chesterfield County Open Geospace API

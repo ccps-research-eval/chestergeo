@@ -1,0 +1,5 @@
+url: https://ccps-research-eval.github.io/chestergeo/
+template:
+  bootstrap: 5
+  bootswatch: minty
+

@@ -11,6 +11,6 @@ A character vector where each element is a layer that can be accessed through th
 available_layers
 }
 \description{
-This data is a character vector containing the layers available to extract from the Chesterfield County OpenGeospace API. These layers can be passed as arguments into the \code{\link{get_geo_data()}} function
+This data is a character vector containing the layers available to extract from the Chesterfield County OpenGeospace API. These layers can be passed as arguments into the \code{\link[chestergeo:get_geo_data]{get_geo_data()}} function
 }
 \keyword{datasets}

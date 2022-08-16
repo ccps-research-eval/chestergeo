@@ -1,7 +1,10 @@
 ---
-title: "chestergeo"
-output: github_document
+  output:
+    github_document:
+      html_preview: false
 ---
+
+# chestergeo
 
 `{chestergeo}` provides an interface for accessing data from [Chesterfield County's OpenGeoSpace](https://opengeospace.chesterfield.gov/). This includes publicly-available data describing county infrastructure, school and voting boundaries, utility locations, and locations of police/fire/EMS responses, among others.
 
@@ -19,13 +22,13 @@ The core function provided by the package is `get_geo_data()`. This function tak
 
 For example, we might be interested in retrieving the middle school boundary data:
 
-```{r}
+```{r, message = FALSE}
 library(chestergeo)
 
 ms_bounds <- get_geo_data("MiddleSchoolBoundary")
 ```
 
-This returns a `sf` object:
+This returns an `sf` object:
 
 ```{r, warning = FALSE, message = FALSE}
 library(dplyr)
@@ -44,14 +47,17 @@ ggplot(ms_bounds) +
   theme_void()
 ```
 
-Likewise, if we wanted to see bus routes in the county:
+Likewise, if we wanted to see the major roads in the county:
 
-```{r}
-bus_routes <- get_geo_data("GRTC_Bus_Routes")
+```{r, message = FALSE}
+roads <- get_geo_data("Major Roads")
 
-ggplot(bus_routes) +
-  geom_sf(aes(color = objectid)) +
-  theme_void()
+ggplot(roads) +
+  geom_sf(aes(color = OBJECTID)) +
+  theme_void() +
+  theme(
+    legend.position = "none"
+  )
 ```
 
 

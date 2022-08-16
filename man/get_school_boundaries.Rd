@@ -10,7 +10,7 @@ get_school_boundaries(level = c("elem", "middle", "high"))
 \item{level}{Either 'elem', 'middle', or 'high'}
 }
 \value{
-
+an \code{sf} object with the school boundaries for the chosen school level
 }
 \description{
 This function allows you to retrieve the school boundaries for a given level. Note that it is a wrapper around the \code{\link{get_geo_data}} function
