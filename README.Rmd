@@ -65,7 +65,7 @@ ggplot(roads) +
 
 I am currently implementing some functions that wrap the `get_geo_data()` function so that users do not necessarily need to know the names of the layers they're accessing (which names aren't always super straightforward). Currently, the only wrapper function is `get_school_boundaries()`, which allows users to request school boundary lines.
 
-The following code is equivalent:
+The following code chunks do the same thing:
 
 ```{r school-bounds, eval = FALSE}
 ms_bounds <- get_geo_data("MiddleSchoolBoundary")

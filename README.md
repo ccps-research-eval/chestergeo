@@ -108,7 +108,7 @@ super straightforward). Currently, the only wrapper function is
 `get_school_boundaries()`, which allows users to request school boundary
 lines.
 
-The following code is equivalent:
+The following code chunks do the same thing:
 
 ``` r
 ms_bounds <- get_geo_data("MiddleSchoolBoundary")
