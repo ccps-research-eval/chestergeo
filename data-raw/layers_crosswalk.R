@@ -2,7 +2,7 @@
 #get layers crosswalk
 services <- extract_resources()
 
-layers_crosswalk <- map_dfr(services, ~make_layers_crosswalk(.x))
+layers_crosswalk <- purrr::map_dfr(services, ~make_layers_crosswalk(.x))
 
 save(layers_crosswalk, file = here::here("data/layers_crosswalk.RData"))
 
