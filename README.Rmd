@@ -1,22 +1,37 @@
 ---
-  output:
-    github_document:
-      html_preview: false
+output: github_document
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # chestergeo
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/ccps-research-eval/chestergeo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ccps-research-eval/chestergeo/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/ccps-research-eval/chestergeo/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ccps-research-eval/chestergeo?branch=master)
+<!-- badges: end -->
+
 `{chestergeo}` provides an interface for accessing data from [Chesterfield County's OpenGeoSpace](https://opengeospace.chesterfield.gov/). This includes publicly-available data describing county infrastructure, school and voting boundaries, utility locations, and locations of police/fire/EMS responses, among others.
 
-# Installation
+## Installation
 
-You can install `{chestergeo}` from Github via the following:
+You can install the development version of chestergeo from [GitHub](https://github.com/) with:
 
-```{r install-block, eval = FALSE}
+``` r
+# install.packages("devtools")
 devtools::install_github("ccps-research-eval/chestergeo")
 ```
 
-# Basic Usage
+## Basic Usage
 
 The core function provided by the package is `get_geo_data()`. This function takes a "layer" argument, which defines the OpenGeoSpace layer to retrieve data from. You can see all layers available in the `available_layers` object (as well as within the `layers_crosswalk` data).
 

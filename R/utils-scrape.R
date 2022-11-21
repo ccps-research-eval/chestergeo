@@ -2,8 +2,8 @@
 extract_resources <- function(url = "https://services3.arcgis.com/TsynfzBSE6sXfoLq/ArcGIS/rest/services",
                               services = TRUE) {
 
-  res <- rvest::read_html(url) %>%
-    rvest::html_elements("li") %>%
+  res <- rvest::read_html(url) |>
+    rvest::html_elements("li") |>
     rvest::html_elements("a")
 
   ret <- purrr::map_chr(res, ~extract_link_name(.x))
@@ -41,3 +41,5 @@ make_layers_crosswalk <- function(service) {
     layer = res
   )
 }
+
+
