@@ -19,6 +19,9 @@
     <loc>https://ccps-research-eval.github.io/chestergeo/reference/available_layers.html</loc>
   </url>
   <url>
+    <loc>https://ccps-research-eval.github.io/chestergeo/reference/chestergeo-package.html</loc>
+  </url>
+  <url>
     <loc>https://ccps-research-eval.github.io/chestergeo/reference/get_geo_data.html</loc>
   </url>
   <url>
@@ -29,8 +32,5 @@
   </url>
   <url>
     <loc>https://ccps-research-eval.github.io/chestergeo/reference/layers_crosswalk.html</loc>
-  </url>
-  <url>
-    <loc>https://ccps-research-eval.github.io/chestergeo/reference/pipe.html</loc>
   </url>
 </urlset>
