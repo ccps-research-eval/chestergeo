@@ -5,9 +5,12 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/ccps-research-eval/chestergeo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ccps-research-eval/chestergeo/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/ccps-research-eval/chestergeo/actions/workflows/check-release.yaml/badge.svg)](https://github.com/ccps-research-eval/chestergeo/actions/workflows/check-release.yaml)
+[![Build
+Status](https://github.com/ccps-research-eval/chestergeo/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/ccps-research-eval/chestergeo/actions/workflows/test-coverage.yaml/)
 [![Codecov test
 coverage](https://codecov.io/gh/ccps-research-eval/chestergeo/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ccps-research-eval/chestergeo?branch=master)
+
 <!-- badges: end -->
 
 `{chestergeo}` provides an interface for accessing data from
